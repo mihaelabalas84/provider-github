@@ -20,7 +20,7 @@ import (
 	"reflect"
 	"sort"
 
-	"k8s.io/utils/pointer"
+	"k8s.io/utils/ptr"
 
 	"github.com/google/go-cmp/cmp"
 
@@ -186,8 +186,8 @@ func ToBoolPtr(b bool) *bool {
 
 // BoolDerefToPointer dereferences the pointer to bool 'ptr',
 // uses 'def' as a default if 'ptr' is nil, and returns a new pointer to the resulting bool.
-func BoolDerefToPointer(ptr *bool, def bool) *bool {
-	b := pointer.BoolDeref(ptr, def)
+func BoolDerefToPointer(bptr *bool, def bool) *bool {
+	b := ptr.Deref(bptr, def)
 	return &b
 }
 
